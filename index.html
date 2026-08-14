@@ -102,7 +102,7 @@
               <p class="overline">每天带回一个新物品</p>
               <h2 id="rewardCollectionTitle">🚂 宝宝的奖励车厢</h2>
             </div>
-            <span id="rewardCollectionCount">已点亮 0 / 16 节</span>
+            <span id="rewardCollectionCount">已点亮 0 / 32 节</span>
           </div>
           <p class="reward-collection-lead">完成每天的两段学习，就会点亮一节车厢。点一下已经获得的物品，可以再看看它。</p>
           <div class="reward-train" id="rewardCollection" aria-label="宝宝已经获得和等待获得的奖励"></div>
@@ -116,93 +116,7 @@
           </div>
         </section>
 
-        <section class="week-section" aria-labelledby="weekTitle">
-          <div class="section-heading">
-            <h2 id="weekTitle">第一周</h2>
-            <span id="familyProgress">已完成 0 个</span>
-          </div>
-          <ol class="story-path seven-days">
-            <li class="story-node" data-lesson-node="greeting">
-              <button class="story-node-button" type="button" data-lesson-select="greeting" aria-label="选择问候课程">
-                <span class="node-icon">1</span><strong>问候</strong><small>打招呼</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="colors">
-              <button class="story-node-button" type="button" data-lesson-select="colors" aria-label="选择颜色课程">
-                <span class="node-icon">2</span><strong>颜色</strong><small>找一找</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="toys">
-              <button class="story-node-button" type="button" data-lesson-select="toys" aria-label="选择玩具课程">
-                <span class="node-icon">3</span><strong>玩具</strong><small>一起玩</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="animals">
-              <button class="story-node-button" type="button" data-lesson-select="animals" aria-label="选择动物课程">
-                <span class="node-icon">4</span><strong>动物</strong><small>猜一猜</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="clothes">
-              <button class="story-node-button" type="button" data-lesson-select="clothes" aria-label="选择穿衣课程">
-                <span class="node-icon">5</span><strong>穿衣</strong><small>准备好</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="park">
-              <button class="story-node-button" type="button" data-lesson-select="park" aria-label="选择公园课程">
-                <span class="node-icon">6</span><strong>公园</strong><small>去看看</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="family">
-              <button class="story-node-button" type="button" data-lesson-select="family" aria-label="选择家庭课程">
-                <span class="node-icon">7</span><strong>家人</strong><small>我爱你</small>
-              </button>
-            </li>
-          </ol>
-        </section>
-
-        <section class="week-section week-preview" id="weekTwoSection" aria-labelledby="weekTwoTitle">
-          <div class="section-heading">
-            <h2 id="weekTwoTitle">第二周</h2>
-            <span id="weekTwoStatus">第 8 天自动开启</span>
-          </div>
-          <ol class="story-path seven-days">
-            <li class="story-node" data-lesson-node="cleanup">
-              <button class="story-node-button" type="button" data-lesson-select="cleanup" aria-label="选择整理课程" disabled>
-                <span class="node-icon">8</span><strong>整理</strong><small>收一收</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="shapes">
-              <button class="story-node-button" type="button" data-lesson-select="shapes" aria-label="选择形状课程" disabled>
-                <span class="node-icon">9</span><strong>形状</strong><small>看一看</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="actions">
-              <button class="story-node-button" type="button" data-lesson-select="actions" aria-label="选择动作课程" disabled>
-                <span class="node-icon">10</span><strong>动作</strong><small>动一动</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="feelings">
-              <button class="story-node-button" type="button" data-lesson-select="feelings" aria-label="选择心情课程" disabled>
-                <span class="node-icon">11</span><strong>心情</strong><small>说一说</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="weather">
-              <button class="story-node-button" type="button" data-lesson-select="weather" aria-label="选择天气课程" disabled>
-                <span class="node-icon">12</span><strong>天气</strong><small>望窗外</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="manners">
-              <button class="story-node-button" type="button" data-lesson-select="manners" aria-label="选择礼貌课程" disabled>
-                <span class="node-icon">13</span><strong>礼貌</strong><small>请与谢谢</small>
-              </button>
-            </li>
-            <li class="story-node" data-lesson-node="room">
-              <button class="story-node-button" type="button" data-lesson-select="room" aria-label="选择房间课程" disabled>
-                <span class="node-icon">14</span><strong>房间</strong><small>找东西</small>
-              </button>
-            </li>
-          </ol>
-        </section>
+        <div id="weekSections"></div>
       </section>
 
       <section class="screen" id="lessonScreen" aria-label="正在学习">

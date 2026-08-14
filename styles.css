@@ -271,6 +271,20 @@ h3 {
 .lesson-picture.picture-weather { background: var(--blue-soft); }
 .lesson-picture.picture-manners { background: var(--yellow-soft); }
 .lesson-picture.picture-room { background: var(--green-soft); }
+.lesson-picture.picture-body { background: var(--green-soft); }
+.lesson-picture.picture-food { background: var(--yellow-soft); }
+.lesson-picture.picture-numbers { background: var(--blue-soft); }
+.lesson-picture.picture-music { background: var(--coral-soft); }
+.lesson-picture.picture-bath { background: var(--blue-soft); }
+.lesson-picture.picture-bedtime { background: var(--green-soft); }
+.lesson-picture.picture-games { background: var(--yellow-soft); }
+.lesson-picture.picture-farm { background: var(--green-soft); }
+.lesson-picture.picture-transport { background: var(--blue-soft); }
+.lesson-picture.picture-beach { background: var(--yellow-soft); }
+.lesson-picture.picture-shopping { background: var(--coral-soft); }
+.lesson-picture.picture-opposites { background: var(--green-soft); }
+.lesson-picture.picture-cooking { background: var(--yellow-soft); }
+.lesson-picture.picture-celebration { background: var(--coral-soft); }
 
 .lesson-picture::before,
 .lesson-picture::after {

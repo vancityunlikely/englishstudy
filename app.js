@@ -8,6 +8,7 @@
       id: "greeting",
       order: 1,
       meta: "第一课",
+      nodeTitle: "问候",
       title: "小熊来做客",
       description: "学会见面和告别，再和小熊互相问好。",
       pictureMain: "🧸",
@@ -93,6 +94,7 @@
       id: "colors",
       order: 2,
       meta: "第二课",
+      nodeTitle: "颜色",
       title: "彩虹不见了",
       description: "帮小熊找回颜色，再用英语问它是什么颜色。",
       pictureMain: "🌈",
@@ -178,6 +180,7 @@
       id: "toys",
       order: 3,
       meta: "第三课",
+      nodeTitle: "玩具",
       title: "玩具小店开门了",
       description: "认识喜欢的玩具，再练习礼貌地提出请求。",
       pictureMain: "🧸",
@@ -263,6 +266,7 @@
       id: "animals",
       order: 4,
       meta: "第四课",
+      nodeTitle: "动物",
       title: "谁在叫呀",
       description: "听声音猜动物，再用英语说出它是谁。",
       pictureMain: "🐶",
@@ -294,6 +298,7 @@
       id: "clothes",
       order: 5,
       meta: "第五课",
+      nodeTitle: "穿衣",
       title: "小熊要出门",
       description: "帮小熊找到衣物，一起做好出门准备。",
       pictureMain: "🧢",
@@ -325,6 +330,7 @@
       id: "park",
       order: 6,
       meta: "第六课",
+      nodeTitle: "公园",
       title: "一起去公园",
       description: "认识公园里的事物，再邀请家人一起看看。",
       pictureMain: "🌳",
@@ -356,6 +362,7 @@
       id: "family",
       order: 7,
       meta: "第七课",
+      nodeTitle: "家人",
       title: "我们的家",
       description: "说说自己的家人，用一句英语表达喜欢。",
       pictureMain: "🏠",
@@ -408,6 +415,7 @@
       id: "cleanup",
       order: 8,
       meta: "第八课",
+      nodeTitle: "整理",
       title: "玩具回家了",
       description: "把玩具和图书送回原位，一边整理一边说英语。",
       pictureMain: "🧺",
@@ -431,6 +439,7 @@
       id: "shapes",
       order: 9,
       meta: "第九课",
+      nodeTitle: "形状",
       title: "形状侦探",
       description: "在家里寻找圆形和星形，用英语问一问。",
       pictureMain: "⭕",
@@ -454,6 +463,7 @@
       id: "actions",
       order: 10,
       meta: "第十课",
+      nodeTitle: "动作",
       title: "跟着口令动一动",
       description: "认识手和脚，听英语口令做动作。",
       pictureMain: "👏",
@@ -477,6 +487,7 @@
       id: "feelings",
       order: 11,
       meta: "第十一课",
+      nodeTitle: "心情",
       title: "今天心情怎么样",
       description: "认识开心和疲倦，学会说出自己的感觉。",
       pictureMain: "😊",
@@ -500,6 +511,7 @@
       id: "weather",
       order: 12,
       meta: "第十二课",
+      nodeTitle: "天气",
       title: "窗外的天气",
       description: "看看窗外，用英语说今天晴朗还是下雨。",
       pictureMain: "☀️",
@@ -523,6 +535,7 @@
       id: "manners",
       order: 13,
       meta: "第十三课",
+      nodeTitle: "礼貌",
       title: "礼貌小帮手",
       description: "练习请、谢谢和道歉，在家里就能马上使用。",
       pictureMain: "🙏",
@@ -546,6 +559,7 @@
       id: "room",
       order: 14,
       meta: "第十四课",
+      nodeTitle: "房间",
       title: "房间寻宝",
       description: "认识床和桌子，练习询问东西在哪里。",
       pictureMain: "🛏️",
@@ -584,6 +598,384 @@
         { type: "speak", role: "grandma", phrase: "It is on the table.", chinese: "它在桌子上。", context: "奶奶告诉宝宝位置" },
         { type: "dialogue", role: "together", title: "一起寻找小熊的书", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Where is the book?", chinese: "书在哪里？" }, { role: "宝宝", emoji: "👦🏻", english: "On the table!", chinese: "在桌子上！" }, { role: "奶奶", emoji: "👩🏻", english: "Can you find it?", chinese: "你能找到吗？" }, { role: "宝宝", emoji: "👦🏻", english: "Here it is!", chinese: "在这里！" }] },
         { type: "mission", role: "together", title: "玩一次房间寻宝", picture: "📕 🔎 🛏️", steps: ["一人藏好一本书或一个玩具", "另一人问：<strong>Where is it?</strong>", "用 on the bed 或 on the table 提示位置"] }
+      ]
+    },
+    body: {
+      id: "body",
+      order: 15,
+      meta: "第十五课",
+      nodeTitle: "身体",
+      title: "脸上的小侦探",
+      description: "认识鼻子和嘴巴，学会用英语做动作提示。",
+      pictureMain: "👃",
+      pictureSmall: "👄",
+      pictureClass: "picture-body",
+      childGoal: "nose · mouth",
+      grandmaGoal: "Touch your nose.",
+      previewPhrase: "Touch your nose. Open your mouth.",
+      nodeSubtitle: "指一指",
+      reward: { picture: "👃 😊 👄", title: "脸部小侦探毕业啦！", lead: "奶奶和宝宝一起认识了脸上的两个部位。", child: "认识 nose 和 mouth", grandma: "会发出简单动作指令", unlockEmoji: "🪞", unlockTitle: "小熊的小镜子" },
+      stages: [
+        { type: "choice", role: "child", word: "nose", chinese: "鼻子", prompt: "听一听，哪一个是 nose？", options: [{ value: "ear", label: "ear", emoji: "👂" }, { value: "nose", label: "nose", emoji: "👃" }, { value: "eye", label: "eye", emoji: "👀" }] },
+        { type: "choice", role: "child", word: "mouth", chinese: "嘴巴", prompt: "再找一个，哪一个是 mouth？", options: [{ value: "nose", label: "nose", emoji: "👃" }, { value: "mouth", label: "mouth", emoji: "👄" }, { value: "eye", label: "eye", emoji: "👀" }] },
+        { type: "speak", role: "grandma", phrase: "Touch your nose.", chinese: "摸摸你的鼻子。", context: "奶奶带宝宝认识脸上的部位" },
+        { type: "speak", role: "grandma", phrase: "Open your mouth.", chinese: "张开你的嘴巴。", context: "刷牙前一起张大嘴巴" },
+        { type: "dialogue", role: "together", title: "一起找找脸上的小侦探", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Touch your nose.", chinese: "摸摸你的鼻子。" }, { role: "宝宝", emoji: "👦🏻", english: "My nose!", chinese: "我的鼻子！" }, { role: "奶奶", emoji: "👩🏻", english: "Open your mouth.", chinese: "张开嘴巴。" }, { role: "宝宝", emoji: "👦🏻", english: "Ahh!", chinese: "啊——！" }] },
+        { type: "mission", role: "together", title: "玩一次指部位游戏", picture: "👃 🎯 👄", steps: ["奶奶说：<strong>Touch your nose.</strong>", "宝宝指鼻子，说：<strong>My nose!</strong>", "交换角色，再玩一轮"] }
+      ]
+    },
+    food: {
+      id: "food",
+      order: 16,
+      meta: "第十六课",
+      nodeTitle: "食物",
+      title: "水果下午茶",
+      description: "认识苹果和香蕉，练习问喜不喜欢。",
+      pictureMain: "🍎",
+      pictureSmall: "🍌",
+      pictureClass: "picture-food",
+      childGoal: "apple · banana",
+      grandmaGoal: "Do you like…?",
+      previewPhrase: "Do you like apples? Yes, I do.",
+      nodeSubtitle: "尝一尝",
+      reward: { picture: "🍎 🧸 🍌", title: "水果下午茶开好啦！", lead: "奶奶和宝宝一起完成了水果下午茶。", child: "认识 apple 和 banana", grandma: "会询问对方的喜好", unlockEmoji: "🍎", unlockTitle: "小熊的水果篮" },
+      stages: [
+        { type: "choice", role: "child", word: "apple", chinese: "苹果", prompt: "听一听，哪一个是 apple？", options: [{ value: "banana", label: "banana", emoji: "🍌" }, { value: "apple", label: "apple", emoji: "🍎" }, { value: "bread", label: "bread", emoji: "🍞" }] },
+        { type: "choice", role: "child", word: "banana", chinese: "香蕉", prompt: "再找一个，哪一个是 banana？", options: [{ value: "apple", label: "apple", emoji: "🍎" }, { value: "milk", label: "milk", emoji: "🥛" }, { value: "banana", label: "banana", emoji: "🍌" }] },
+        { type: "speak", role: "grandma", phrase: "Do you like apples?", chinese: "你喜欢苹果吗？", context: "奶奶在果盘旁提问" },
+        { type: "speak", role: "grandma", phrase: "Yes, I do.", chinese: "是的，我喜欢。", context: "奶奶也说说自己喜欢的水果" },
+        { type: "dialogue", role: "together", title: "一起尝尝水果", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Do you like apples?", chinese: "你喜欢苹果吗？" }, { role: "宝宝", emoji: "👦🏻", english: "Yes, I do!", chinese: "是的，我喜欢！" }, { role: "奶奶", emoji: "👩🏻", english: "Here you are.", chinese: "给你。" }, { role: "宝宝", emoji: "👦🏻", english: "Thank you!", chinese: "谢谢！" }] },
+        { type: "mission", role: "together", title: "开一次水果下午茶", picture: "🍎 🍽️ 🍌", steps: ["准备两种水果", "奶奶问：<strong>Do you like apples?</strong>", "宝宝用 <strong>Yes, I do.</strong> 回答，然后一起尝一尝"] }
+      ]
+    },
+    numbers: {
+      id: "numbers",
+      order: 17,
+      meta: "第十七课",
+      nodeTitle: "数字",
+      title: "小熊数积木",
+      description: "认识一和二，学会一起数三样东西。",
+      pictureMain: "🔢",
+      pictureSmall: "🧱",
+      pictureClass: "picture-numbers",
+      childGoal: "one · two",
+      grandmaGoal: "How many?",
+      previewPhrase: "One, two, three. Let's count.",
+      nodeSubtitle: "数一数",
+      reward: { picture: "🧮 🧸 🧱", title: "积木数好啦！", lead: "奶奶和宝宝一起完成了数字游戏。", child: "认识 one 和 two", grandma: "会询问数量并一起数数", unlockEmoji: "🧮", unlockTitle: "小熊的算珠" },
+      stages: [
+        { type: "choice", role: "child", word: "one", chinese: "一", prompt: "听一听，哪一个是 one？", options: [{ value: "one", label: "one", emoji: "1️⃣" }, { value: "two", label: "two", emoji: "2️⃣" }, { value: "three", label: "three", emoji: "3️⃣" }] },
+        { type: "choice", role: "child", word: "two", chinese: "二", prompt: "再听一个，哪一个是 two？", options: [{ value: "three", label: "three", emoji: "3️⃣" }, { value: "two", label: "two", emoji: "2️⃣" }, { value: "one", label: "one", emoji: "1️⃣" }] },
+        { type: "speak", role: "grandma", phrase: "How many?", chinese: "有几个？", context: "奶奶指着桌上的积木" },
+        { type: "speak", role: "grandma", phrase: "One, two, three.", chinese: "一、二、三。", context: "奶奶和宝宝一起数数" },
+        { type: "dialogue", role: "together", title: "数一数积木", lines: [{ role: "奶奶", emoji: "👩🏻", english: "How many?", chinese: "有几个？" }, { role: "宝宝", emoji: "👦🏻", english: "One, two!", chinese: "一、二！" }, { role: "奶奶", emoji: "👩🏻", english: "Let's count.", chinese: "我们来数一数。" }, { role: "宝宝", emoji: "👦🏻", english: "One, two, three!", chinese: "一、二、三！" }] },
+        { type: "mission", role: "together", title: "数一数家里的物品", picture: "🧱 1️⃣ 2️⃣", steps: ["找出三件一样的物品", "奶奶说：<strong>Let's count.</strong>", "一起数：<strong>One, two, three.</strong>"] }
+      ]
+    },
+    music: {
+      id: "music",
+      order: 18,
+      meta: "第十八课",
+      nodeTitle: "音乐",
+      title: "家庭小乐队",
+      description: "认识鼓和铃铛，再一起唱一首歌。",
+      pictureMain: "🥁",
+      pictureSmall: "🔔",
+      pictureClass: "picture-music",
+      childGoal: "drum · bell",
+      grandmaGoal: "Let's sing a song.",
+      previewPhrase: "Let's sing a song. Listen to the music.",
+      nodeSubtitle: "敲一敲",
+      reward: { picture: "🥁 🎶 🔔", title: "家庭音乐会成功啦！", lead: "奶奶和宝宝一起开了一场小音乐会。", child: "认识 drum 和 bell", grandma: "会邀请唱歌和听音乐", unlockEmoji: "🥁", unlockTitle: "小熊的小鼓" },
+      stages: [
+        { type: "choice", role: "child", word: "drum", chinese: "鼓", prompt: "听一听，哪一个是 drum？", options: [{ value: "drum", label: "drum", emoji: "🥁" }, { value: "bell", label: "bell", emoji: "🔔" }, { value: "guitar", label: "guitar", emoji: "🎸" }] },
+        { type: "choice", role: "child", word: "bell", chinese: "铃铛", prompt: "再找一个，哪一个是 bell？", options: [{ value: "bell", label: "bell", emoji: "🔔" }, { value: "drum", label: "drum", emoji: "🥁" }, { value: "piano", label: "piano", emoji: "🎹" }] },
+        { type: "speak", role: "grandma", phrase: "Let's sing a song.", chinese: "我们来唱首歌。", context: "奶奶提议开一场音乐会" },
+        { type: "speak", role: "grandma", phrase: "Listen to the music.", chinese: "听听音乐。", context: "奶奶提醒宝宝注意听节奏" },
+        { type: "dialogue", role: "together", title: "开一场家庭音乐会", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Let's sing a song.", chinese: "我们来唱首歌。" }, { role: "宝宝", emoji: "👦🏻", english: "La la la!", chinese: "啦啦啦！" }, { role: "奶奶", emoji: "👩🏻", english: "Listen to the music.", chinese: "听听音乐。" }, { role: "宝宝", emoji: "👦🏻", english: "Clap your hands!", chinese: "拍拍手！" }] },
+        { type: "mission", role: "together", title: "用锅碗开一场音乐会", picture: "🥣 🥁 🔔", steps: ["找两样能敲响的安全物品", "奶奶说：<strong>Let's sing a song.</strong>", "宝宝敲节奏，奶奶说：<strong>Listen to the music.</strong>"] }
+      ]
+    },
+    bath: {
+      id: "bath",
+      order: 19,
+      meta: "第十九课",
+      nodeTitle: "洗澡",
+      title: "泡泡洗澡时间",
+      description: "认识小鸭和肥皂，练习洗手的英语提示。",
+      pictureMain: "🛁",
+      pictureSmall: "🦆",
+      pictureClass: "picture-bath",
+      childGoal: "duck · soap",
+      grandmaGoal: "Wash your hands.",
+      previewPhrase: "Wash your hands. Let's take a bath.",
+      nodeSubtitle: "洗一洗",
+      reward: { picture: "🛁 🦆 🧼", title: "泡泡时间完成啦！", lead: "奶奶和宝宝一起完成了洗澡英语。", child: "认识 duck 和 soap", grandma: "会用英语提示洗手和洗澡", unlockEmoji: "🦆", unlockTitle: "小熊的橡皮鸭" },
+      stages: [
+        { type: "choice", role: "child", word: "duck", chinese: "小鸭", prompt: "听一听，哪一个是 duck？", options: [{ value: "duck", label: "duck", emoji: "🦆" }, { value: "boat", label: "boat", emoji: "⛵" }, { value: "fish", label: "fish", emoji: "🐟" }] },
+        { type: "choice", role: "child", word: "soap", chinese: "肥皂", prompt: "再找一个，哪一个是 soap？", options: [{ value: "duck", label: "duck", emoji: "🦆" }, { value: "soap", label: "soap", emoji: "🧼" }, { value: "sponge", label: "sponge", emoji: "🧽" }] },
+        { type: "speak", role: "grandma", phrase: "Wash your hands.", chinese: "洗洗手。", context: "吃饭前提醒宝宝洗手" },
+        { type: "speak", role: "grandma", phrase: "Let's take a bath.", chinese: "我们来洗澡。", context: "洗澡时间到了" },
+        { type: "dialogue", role: "together", title: "洗澡时间到", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Let's take a bath.", chinese: "我们来洗澡。" }, { role: "宝宝", emoji: "👦🏻", english: "Splash, splash!", chinese: "哗啦哗啦！" }, { role: "奶奶", emoji: "👩🏻", english: "Wash your hands.", chinese: "洗洗手。" }, { role: "宝宝", emoji: "👦🏻", english: "All done!", chinese: "都完成啦！" }] },
+        { type: "mission", role: "together", title: "完成一次洗手小任务", picture: "👐 🧼 💧", steps: ["一起用肥皂洗手", "奶奶说：<strong>Wash your hands.</strong>", "洗完一起说：<strong>All done!</strong>"] }
+      ]
+    },
+    bedtime: {
+      id: "bedtime",
+      order: 20,
+      meta: "第二十课",
+      nodeTitle: "睡前",
+      title: "月亮出来啦",
+      description: "认识月亮和小熊玩偶，学会睡前道晚安。",
+      pictureMain: "🌙",
+      pictureSmall: "⭐",
+      pictureClass: "picture-bedtime",
+      childGoal: "moon · teddy",
+      grandmaGoal: "Good night.",
+      previewPhrase: "Good night. Sweet dreams.",
+      nodeSubtitle: "说晚安",
+      reward: { picture: "🌙 🧸 ⭐", title: "晚安英语完成啦！", lead: "奶奶和宝宝一起完成了睡前问候。", child: "认识 moon 和 teddy", grandma: "会道晚安和好梦", unlockEmoji: "🌙", unlockTitle: "小熊的晚安月亮" },
+      stages: [
+        { type: "choice", role: "child", word: "moon", chinese: "月亮", prompt: "听一听，哪一个是 moon？", options: [{ value: "moon", label: "moon", emoji: "🌙" }, { value: "sun", label: "sun", emoji: "☀️" }, { value: "cloud", label: "cloud", emoji: "☁️" }] },
+        { type: "choice", role: "child", word: "teddy", chinese: "小熊", prompt: "再找一个，哪一个是 teddy？", options: [{ value: "teddy", label: "teddy", emoji: "🧸" }, { value: "ball", label: "ball", emoji: "⚽" }, { value: "book", label: "book", emoji: "📕" }] },
+        { type: "speak", role: "grandma", phrase: "Good night.", chinese: "晚安。", context: "睡前互相道晚安" },
+        { type: "speak", role: "grandma", phrase: "Sweet dreams.", chinese: "做个好梦。", context: "给宝宝盖好被子" },
+        { type: "dialogue", role: "together", title: "晚安小剧场", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Good night.", chinese: "晚安。" }, { role: "宝宝", emoji: "👦🏻", english: "Good night, Grandma!", chinese: "奶奶晚安！" }, { role: "奶奶", emoji: "👩🏻", english: "Sweet dreams.", chinese: "做个好梦。" }, { role: "宝宝", emoji: "👦🏻", english: "I love you!", chinese: "我爱你！" }] },
+        { type: "mission", role: "together", title: "完成一次睡前仪式", picture: "🌙 🧸 🛏️", steps: ["和宝宝一起收好一样玩具", "奶奶说：<strong>Good night.</strong>", "宝宝抱玩偶说：<strong>Sweet dreams.</strong>"] }
+      ]
+    },
+    games: {
+      id: "games",
+      order: 21,
+      meta: "第二十一课",
+      nodeTitle: "游戏",
+      title: "游戏时间到",
+      description: "认识积木和拼图，学会轮流玩一个游戏。",
+      pictureMain: "🧩",
+      pictureSmall: "🧱",
+      pictureClass: "picture-games",
+      childGoal: "blocks · puzzle",
+      grandmaGoal: "Let's play a game.",
+      previewPhrase: "Let's play a game. It's your turn.",
+      nodeSubtitle: "轮流玩",
+      special: {
+        title: "小火车数字站",
+        description: "数数车厢和水果，开着火车去野餐",
+        reward: {
+          picture: "🚂 🔢 🧺",
+          title: "数字小火车到站啦！",
+          lead: "奶奶和宝宝完成了第三周的小火车特别版。",
+          child: "会数 one、two 和 three",
+          grandma: "会数车厢并招呼大家上车",
+          unlockEmoji: "🚏",
+          unlockTitle: "小熊的数字站牌"
+        },
+        stages: [
+          { type: "choice", role: "child", word: "three", chinese: "三", prompt: "听一听，哪一个是 three？", options: [{ value: "one", label: "one", emoji: "1️⃣" }, { value: "three", label: "three", emoji: "3️⃣" }, { value: "two", label: "two", emoji: "2️⃣" }] },
+          { type: "choice", role: "child", word: "banana", chinese: "香蕉", prompt: "再听一个，哪一个是 banana？", options: [{ value: "apple", label: "apple", emoji: "🍎" }, { value: "banana", label: "banana", emoji: "🍌" }, { value: "bread", label: "bread", emoji: "🍞" }] },
+          { type: "speak", role: "grandma", phrase: "How many cars?", chinese: "有几节车厢？", context: "奶奶数一数野餐小火车" },
+          { type: "speak", role: "grandma", phrase: "Here comes the train.", chinese: "火车来啦。", context: "远处传来了小火车的声音" },
+          { type: "dialogue", role: "together", title: "野餐小火车出发", lines: [{ role: "奶奶", emoji: "👩🏻", english: "All aboard!", chinese: "大家上车！" }, { role: "宝宝", emoji: "👦🏻", english: "One, two, three!", chinese: "一、二、三！" }, { role: "奶奶", emoji: "👩🏻", english: "Here comes the train.", chinese: "火车来啦。" }, { role: "宝宝", emoji: "👦🏻", english: "Choo-choo!", chinese: "呜——呜——！" }] },
+          { type: "mission", role: "together", title: "开一列野餐小火车", picture: "🧺 🚂 🍌", steps: ["用小椅子排出三节车厢", "一起数：<strong>One, two, three.</strong>", "奶奶说：<strong>All aboard!</strong>，带上水果上车"] }
+        ]
+      },
+      reward: { picture: "🧩 🧸 🧱", title: "游戏日大成功！", lead: "奶奶和宝宝一起完成了第三周的英语故事。", child: "认识 blocks 和 puzzle", grandma: "会说开始游戏和轮流", unlockEmoji: "🎲", unlockTitle: "小熊的游戏骰子" },
+      stages: [
+        { type: "choice", role: "child", word: "blocks", chinese: "积木", prompt: "听一听，哪一个是 blocks？", options: [{ value: "blocks", label: "blocks", emoji: "🧱" }, { value: "puzzle", label: "puzzle", emoji: "🧩" }, { value: "ball", label: "ball", emoji: "⚽" }] },
+        { type: "choice", role: "child", word: "puzzle", chinese: "拼图", prompt: "再找一个，哪一个是 puzzle？", options: [{ value: "car", label: "car", emoji: "🚗" }, { value: "puzzle", label: "puzzle", emoji: "🧩" }, { value: "blocks", label: "blocks", emoji: "🧱" }] },
+        { type: "speak", role: "grandma", phrase: "Let's play a game.", chinese: "我们来玩游戏。", context: "奶奶提议玩一个新游戏" },
+        { type: "speak", role: "grandma", phrase: "It's your turn.", chinese: "轮到你了。", context: "游戏时提醒宝宝轮到他" },
+        { type: "dialogue", role: "together", title: "一起玩拼图", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Let's play a game.", chinese: "我们来玩游戏。" }, { role: "宝宝", emoji: "👦🏻", english: "Okay!", chinese: "好！" }, { role: "奶奶", emoji: "👩🏻", english: "It's your turn.", chinese: "轮到你了。" }, { role: "宝宝", emoji: "👦🏻", english: "Here it is!", chinese: "在这里！" }] },
+        { type: "mission", role: "together", title: "轮流玩一个游戏", picture: "🎲 👩🏻 👦🏻", steps: ["找一个喜欢的玩具或小游戏", "奶奶说：<strong>Let's play a game.</strong>", "轮到对方时说：<strong>It's your turn.</strong>"] }
+      ]
+    },
+    farm: {
+      id: "farm",
+      order: 22,
+      meta: "第二十二课",
+      nodeTitle: "农场",
+      title: "小小农场主",
+      description: "认识奶牛和小猪，学一学动物的叫声。",
+      pictureMain: "🐄",
+      pictureSmall: "🐷",
+      pictureClass: "picture-farm",
+      childGoal: "cow · pig",
+      grandmaGoal: "The cow says moo.",
+      previewPhrase: "It is a cow. The cow says moo.",
+      nodeSubtitle: "学叫声",
+      reward: { picture: "🐄 🐷 🐔", title: "农场参观完成啦！", lead: "奶奶和宝宝一起认识了农场动物。", child: "认识 cow 和 pig", grandma: "会介绍动物和它们的叫声", unlockEmoji: "🐄", unlockTitle: "小熊的奶牛玩偶" },
+      stages: [
+        { type: "choice", role: "child", word: "cow", chinese: "奶牛", prompt: "听一听，哪一个是 cow？", options: [{ value: "cow", label: "cow", emoji: "🐄" }, { value: "pig", label: "pig", emoji: "🐷" }, { value: "duck", label: "duck", emoji: "🦆" }] },
+        { type: "choice", role: "child", word: "pig", chinese: "小猪", prompt: "再找一个，哪一个是 pig？", options: [{ value: "sheep", label: "sheep", emoji: "🐑" }, { value: "pig", label: "pig", emoji: "🐷" }, { value: "cow", label: "cow", emoji: "🐄" }] },
+        { type: "speak", role: "grandma", phrase: "It is a cow.", chinese: "它是一头牛。", context: "奶奶指着图片上的奶牛" },
+        { type: "speak", role: "grandma", phrase: "The cow says moo.", chinese: "牛叫哞哞。", context: "奶奶学一学奶牛的声音" },
+        { type: "dialogue", role: "together", title: "农场的声音", lines: [{ role: "奶奶", emoji: "👩🏻", english: "What animal is it?", chinese: "它是什么动物？" }, { role: "宝宝", emoji: "👦🏻", english: "A cow!", chinese: "一头牛！" }, { role: "奶奶", emoji: "👩🏻", english: "The cow says moo.", chinese: "牛叫哞哞。" }, { role: "宝宝", emoji: "👦🏻", english: "Moo, moo!", chinese: "哞哞！" }] },
+        { type: "mission", role: "together", title: "开一次动物模仿会", picture: "🐄 🎭 🐷", steps: ["宝宝模仿一种农场动物", "奶奶问：<strong>What animal is it?</strong>", "猜对后交换角色，再玩一次"] }
+      ]
+    },
+    transport: {
+      id: "transport",
+      order: 23,
+      meta: "第二十三课",
+      nodeTitle: "出行",
+      title: "公交车来啦",
+      description: "认识公交车和自行车，练习出门的英语。",
+      pictureMain: "🚌",
+      pictureSmall: "🚲",
+      pictureClass: "picture-transport",
+      childGoal: "bus · bike",
+      grandmaGoal: "Here comes the bus.",
+      previewPhrase: "Here comes the bus. Let's go by bus.",
+      nodeSubtitle: "去兜风",
+      reward: { picture: "🚌 🚲 🛣️", title: "公交旅行完成啦！", lead: "奶奶和宝宝一起完成了出行英语。", child: "认识 bus 和 bike", grandma: "会提醒车辆来了", unlockEmoji: "🚌", unlockTitle: "小熊的公交卡" },
+      stages: [
+        { type: "choice", role: "child", word: "bus", chinese: "公交车", prompt: "听一听，哪一个是 bus？", options: [{ value: "bus", label: "bus", emoji: "🚌" }, { value: "bike", label: "bike", emoji: "🚲" }, { value: "car", label: "car", emoji: "🚗" }] },
+        { type: "choice", role: "child", word: "bike", chinese: "自行车", prompt: "再找一个，哪一个是 bike？", options: [{ value: "bike", label: "bike", emoji: "🚲" }, { value: "plane", label: "plane", emoji: "✈️" }, { value: "bus", label: "bus", emoji: "🚌" }] },
+        { type: "speak", role: "grandma", phrase: "Here comes the bus.", chinese: "公交车来了。", context: "奶奶提醒宝宝车来了" },
+        { type: "speak", role: "grandma", phrase: "Let's go by bus.", chinese: "我们坐公交车去。", context: "奶奶提议坐公交出门" },
+        { type: "dialogue", role: "together", title: "等公交车", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Here comes the bus.", chinese: "公交车来了。" }, { role: "宝宝", emoji: "👦🏻", english: "Beep beep!", chinese: "哔哔！" }, { role: "奶奶", emoji: "👩🏻", english: "Let's go by bus.", chinese: "我们坐公交车去。" }, { role: "宝宝", emoji: "👦🏻", english: "Let's go!", chinese: "出发吧！" }] },
+        { type: "mission", role: "together", title: "开一次公交车游戏", picture: "🪑 🚌 🪑", steps: ["摆两把椅子当公交车", "奶奶说：<strong>Here comes the bus.</strong>", "宝宝假装刷卡上车，说：<strong>Let's go!</strong>"] }
+      ]
+    },
+    beach: {
+      id: "beach",
+      order: 24,
+      meta: "第二十四课",
+      nodeTitle: "海边",
+      title: "去海边玩沙",
+      description: "认识贝壳和小船，练习邀请去海边的英语。",
+      pictureMain: "🐚",
+      pictureSmall: "⛵",
+      pictureClass: "picture-beach",
+      childGoal: "shell · boat",
+      grandmaGoal: "Let's go to the beach.",
+      previewPhrase: "Let's go to the beach. Look at the shell.",
+      nodeSubtitle: "捡贝壳",
+      reward: { picture: "🐚 ⛵ ☀️", title: "海边寻宝完成啦！", lead: "奶奶和宝宝一起完成了海边英语。", child: "认识 shell 和 boat", grandma: "会邀请和引导观察", unlockEmoji: "🐚", unlockTitle: "小熊的贝壳收藏" },
+      stages: [
+        { type: "choice", role: "child", word: "shell", chinese: "贝壳", prompt: "听一听，哪一个是 shell？", options: [{ value: "shell", label: "shell", emoji: "🐚" }, { value: "boat", label: "boat", emoji: "⛵" }, { value: "fish", label: "fish", emoji: "🐟" }] },
+        { type: "choice", role: "child", word: "boat", chinese: "小船", prompt: "再找一个，哪一个是 boat？", options: [{ value: "ball", label: "ball", emoji: "⚽" }, { value: "boat", label: "boat", emoji: "⛵" }, { value: "shell", label: "shell", emoji: "🐚" }] },
+        { type: "speak", role: "grandma", phrase: "Let's go to the beach.", chinese: "我们去海边吧。", context: "奶奶提议一次海边旅行" },
+        { type: "speak", role: "grandma", phrase: "Look at the shell.", chinese: "看看这个贝壳。", context: "奶奶捡到一个漂亮贝壳" },
+        { type: "dialogue", role: "together", title: "海边的发现", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Look at the shell.", chinese: "看看这个贝壳。" }, { role: "宝宝", emoji: "👦🏻", english: "A shell!", chinese: "一个贝壳！" }, { role: "奶奶", emoji: "👩🏻", english: "Let's go to the beach.", chinese: "我们去海边吧。" }, { role: "宝宝", emoji: "👦🏻", english: "Let's go!", chinese: "出发吧！" }] },
+        { type: "mission", role: "together", title: "玩一次贝壳寻宝", picture: "🐚 🔎 🏖️", steps: ["在图片或家里找一样像贝壳的东西", "奶奶说：<strong>Look at the shell.</strong>", "宝宝指出来，说：<strong>A shell!</strong>"] }
+      ]
+    },
+    shopping: {
+      id: "shopping",
+      order: 25,
+      meta: "第二十五课",
+      nodeTitle: "购物",
+      title: "小小商店",
+      description: "认识购物袋和面包，练习买东西的英语。",
+      pictureMain: "🛍️",
+      pictureSmall: "🍞",
+      pictureClass: "picture-shopping",
+      childGoal: "bag · bread",
+      grandmaGoal: "Let's go shopping.",
+      previewPhrase: "Let's go shopping. Some bread, please.",
+      nodeSubtitle: "买东西",
+      reward: { picture: "🛍️ 🍞 🧺", title: "购物小任务完成啦！", lead: "奶奶和宝宝一起完成了商店对话。", child: "认识 bag 和 bread", grandma: "会发起购物并礼貌点单", unlockEmoji: "🛍️", unlockTitle: "小熊的购物袋" },
+      stages: [
+        { type: "choice", role: "child", word: "bag", chinese: "袋子", prompt: "听一听，哪一个是 bag？", options: [{ value: "bag", label: "bag", emoji: "🛍️" }, { value: "basket", label: "basket", emoji: "🧺" }, { value: "box", label: "box", emoji: "📦" }] },
+        { type: "choice", role: "child", word: "bread", chinese: "面包", prompt: "再找一个，哪一个是 bread？", options: [{ value: "apple", label: "apple", emoji: "🍎" }, { value: "bread", label: "bread", emoji: "🍞" }, { value: "banana", label: "banana", emoji: "🍌" }] },
+        { type: "speak", role: "grandma", phrase: "Let's go shopping.", chinese: "我们去买东西。", context: "奶奶提议去小商店" },
+        { type: "speak", role: "grandma", phrase: "Some bread, please.", chinese: "请来一些面包。", context: "奶奶在商店里点单" },
+        { type: "dialogue", role: "together", title: "逛小商店", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Let's go shopping.", chinese: "我们去买东西。" }, { role: "宝宝", emoji: "👦🏻", english: "Okay!", chinese: "好！" }, { role: "奶奶", emoji: "👩🏻", english: "Some bread, please.", chinese: "请来一些面包。" }, { role: "宝宝", emoji: "👦🏻", english: "Here you are.", chinese: "给你。" }] },
+        { type: "mission", role: "together", title: "开一家家庭小商店", picture: "🧺 🛍️ 🍞", steps: ["摆出两样“商品”", "奶奶说：<strong>Let's go shopping.</strong>", "宝宝“买”一样，说：<strong>Some bread, please.</strong>"] }
+      ]
+    },
+    opposites: {
+      id: "opposites",
+      order: 26,
+      meta: "第二十六课",
+      nodeTitle: "反义词",
+      title: "比一比谁更大",
+      description: "认识大和小，用英语说出两样东西的区别。",
+      pictureMain: "🐘",
+      pictureSmall: "🐭",
+      pictureClass: "picture-opposites",
+      childGoal: "big · small",
+      grandmaGoal: "It is big.",
+      previewPhrase: "It is big. It is small.",
+      nodeSubtitle: "比一比",
+      reward: { picture: "🐘 ⚖️ 🐭", title: "大小比较完成啦！", lead: "奶奶和宝宝一起认识了反义词。", child: "认识 big 和 small", grandma: "会描述物品的大小", unlockEmoji: "🐘", unlockTitle: "小熊的大小积木" },
+      stages: [
+        { type: "choice", role: "child", word: "big", chinese: "大", prompt: "听一听，哪一个是 big？", options: [{ value: "big", label: "big", emoji: "🐘" }, { value: "small", label: "small", emoji: "🐭" }, { value: "fast", label: "fast", emoji: "🚄" }] },
+        { type: "choice", role: "child", word: "small", chinese: "小", prompt: "再找一个，哪一个是 small？", options: [{ value: "small", label: "small", emoji: "🐭" }, { value: "big", label: "big", emoji: "🐘" }, { value: "tall", label: "tall", emoji: "🦒" }] },
+        { type: "speak", role: "grandma", phrase: "It is big.", chinese: "它很大。", context: "奶奶指着大皮球" },
+        { type: "speak", role: "grandma", phrase: "It is small.", chinese: "它很小。", context: "奶奶指着小皮球" },
+        { type: "dialogue", role: "together", title: "比一比大小", lines: [{ role: "奶奶", emoji: "👩🏻", english: "It is big.", chinese: "它很大。" }, { role: "宝宝", emoji: "👦🏻", english: "Big!", chinese: "大！" }, { role: "奶奶", emoji: "👩🏻", english: "It is small.", chinese: "它很小。" }, { role: "宝宝", emoji: "👦🏻", english: "Small!", chinese: "小！" }] },
+        { type: "mission", role: "together", title: "在家里找一对大小", picture: "🐘 🔎 🐭", steps: ["找一大一小两样同种物品", "奶奶指着大的说：<strong>It is big.</strong>", "宝宝指着小的说：<strong>It is small.</strong>"] }
+      ]
+    },
+    cooking: {
+      id: "cooking",
+      order: 27,
+      meta: "第二十七课",
+      nodeTitle: "做饭",
+      title: "厨房小厨师",
+      description: "认识鸡蛋和牛奶，一起做一道简单早餐。",
+      pictureMain: "🥚",
+      pictureSmall: "🥛",
+      pictureClass: "picture-cooking",
+      childGoal: "egg · milk",
+      grandmaGoal: "Let's cook.",
+      previewPhrase: "Let's cook. It is yummy.",
+      nodeSubtitle: "做早餐",
+      reward: { picture: "🥚 🍳 🥛", title: "早餐做好啦！", lead: "奶奶和宝宝一起完成了厨房英语。", child: "认识 egg 和 milk", grandma: "会邀请做饭并夸奖食物", unlockEmoji: "🍳", unlockTitle: "小熊的小煎锅" },
+      stages: [
+        { type: "choice", role: "child", word: "egg", chinese: "鸡蛋", prompt: "听一听，哪一个是 egg？", options: [{ value: "egg", label: "egg", emoji: "🥚" }, { value: "milk", label: "milk", emoji: "🥛" }, { value: "bread", label: "bread", emoji: "🍞" }] },
+        { type: "choice", role: "child", word: "milk", chinese: "牛奶", prompt: "再找一个，哪一个是 milk？", options: [{ value: "milk", label: "milk", emoji: "🥛" }, { value: "water", label: "water", emoji: "💧" }, { value: "juice", label: "juice", emoji: "🧃" }] },
+        { type: "speak", role: "grandma", phrase: "Let's cook.", chinese: "我们来做饭。", context: "奶奶邀请宝宝进厨房" },
+        { type: "speak", role: "grandma", phrase: "It is yummy.", chinese: "真好吃。", context: "奶奶尝了一口刚做好的食物" },
+        { type: "dialogue", role: "together", title: "一起做早餐", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Let's cook.", chinese: "我们来做饭。" }, { role: "宝宝", emoji: "👦🏻", english: "Okay!", chinese: "好！" }, { role: "奶奶", emoji: "👩🏻", english: "Here is an egg.", chinese: "这里有一个鸡蛋。" }, { role: "宝宝", emoji: "👦🏻", english: "Yummy!", chinese: "真好吃！" }] },
+        { type: "mission", role: "together", title: "一起做一道简单早餐", picture: "🥚 🥛 🍽️", steps: ["和宝宝一起剥鸡蛋或倒牛奶", "奶奶说：<strong>Let's cook.</strong>", "尝一口，说：<strong>It is yummy.</strong>"] }
+      ]
+    },
+    celebration: {
+      id: "celebration",
+      order: 28,
+      meta: "第二十八课",
+      nodeTitle: "庆祝",
+      title: "毕业庆祝会",
+      description: "认识蛋糕和气球，庆祝坚持学完四周。",
+      pictureMain: "🎂",
+      pictureSmall: "🎈",
+      pictureClass: "picture-celebration",
+      childGoal: "cake · balloon",
+      grandmaGoal: "Well done!",
+      previewPhrase: "Well done! Let's celebrate!",
+      nodeSubtitle: "庆祝啦",
+      special: {
+        title: "小火车星空站",
+        description: "夜晚的星空小火车，载着星星飞向月球",
+        reward: {
+          picture: "🚂 🌙 ✨",
+          title: "星空小火车到站啦！",
+          lead: "奶奶和宝宝完成了第四周的小火车特别版，二十八天旅程全部完成！",
+          child: "认识 moon 和 star",
+          grandma: "会说出发指令和晚安",
+          unlockEmoji: "🚀",
+          unlockTitle: "小熊的星星车票"
+        },
+        stages: [
+          { type: "choice", role: "child", word: "moon", chinese: "月亮", prompt: "听一听，哪一个是 moon？", options: [{ value: "moon", label: "moon", emoji: "🌙" }, { value: "sun", label: "sun", emoji: "☀️" }, { value: "star", label: "star", emoji: "⭐" }] },
+          { type: "choice", role: "child", word: "star", chinese: "星星", prompt: "再找一个，哪一个是 star？", options: [{ value: "star", label: "star", emoji: "⭐" }, { value: "moon", label: "moon", emoji: "🌙" }, { value: "cloud", label: "cloud", emoji: "☁️" }] },
+          { type: "speak", role: "grandma", phrase: "The train is ready.", chinese: "火车准备好了。", context: "星空小火车在站台等待" },
+          { type: "speak", role: "grandma", phrase: "To the moon!", chinese: "去月球！", context: "奶奶宣布今晚的目的地" },
+          { type: "dialogue", role: "together", title: "开向月亮的小火车", lines: [{ role: "奶奶", emoji: "👩🏻", english: "All aboard!", chinese: "大家上车！" }, { role: "宝宝", emoji: "👦🏻", english: "Choo-choo!", chinese: "呜——呜——！" }, { role: "奶奶", emoji: "👩🏻", english: "To the moon!", chinese: "去月球！" }, { role: "宝宝", emoji: "👦🏻", english: "Good night!", chinese: "晚安！" }] },
+          { type: "mission", role: "together", title: "开一列星空小火车", picture: "🌙 🚂 ✨", steps: ["打开小夜灯，排出一列小火车", "一起数三颗“星星”", "宝宝说：<strong>Good night!</strong>，旅程结束"] }
+        ]
+      },
+      reward: { picture: "🎂 🎈 🏆", title: "二十八天挑战完成啦！", lead: "奶奶和宝宝一起完成了四周的英语旅程。", child: "认识 cake 和 balloon", grandma: "会鼓励和一起庆祝", unlockEmoji: "🏆", unlockTitle: "家庭英语毕业奖杯" },
+      stages: [
+        { type: "choice", role: "child", word: "cake", chinese: "蛋糕", prompt: "听一听，哪一个是 cake？", options: [{ value: "cake", label: "cake", emoji: "🎂" }, { value: "balloon", label: "balloon", emoji: "🎈" }, { value: "gift", label: "gift", emoji: "🎁" }] },
+        { type: "choice", role: "child", word: "balloon", chinese: "气球", prompt: "再找一个，哪一个是 balloon？", options: [{ value: "balloon", label: "balloon", emoji: "🎈" }, { value: "star", label: "star", emoji: "⭐" }, { value: "cake", label: "cake", emoji: "🎂" }] },
+        { type: "speak", role: "grandma", phrase: "Well done!", chinese: "做得真棒！", context: "奶奶表扬坚持学习的宝宝" },
+        { type: "speak", role: "grandma", phrase: "Let's celebrate!", chinese: "我们来庆祝！", context: "奶奶提议开一场庆祝会" },
+        { type: "dialogue", role: "together", title: "毕业庆祝会", lines: [{ role: "奶奶", emoji: "👩🏻", english: "Well done!", chinese: "做得真棒！" }, { role: "宝宝", emoji: "👦🏻", english: "Thank you!", chinese: "谢谢！" }, { role: "奶奶", emoji: "👩🏻", english: "Let's celebrate!", chinese: "我们来庆祝！" }, { role: "宝宝", emoji: "👦🏻", english: "I'm happy!", chinese: "我很开心！" }] },
+        { type: "mission", role: "together", title: "开一次家庭庆祝会", picture: "🎂 🎉 🏆", steps: ["和家人分享今天学到的英语", "奶奶说：<strong>Well done!</strong>", "一起说：<strong>Let's celebrate!</strong>"] }
       ]
     }
   };
@@ -629,7 +1021,21 @@
       feelings: [],
       weather: [],
       manners: [],
-      room: []
+      room: [],
+      body: [],
+      food: [],
+      numbers: [],
+      music: [],
+      bath: [],
+      bedtime: [],
+      games: [],
+      farm: [],
+      transport: [],
+      beach: [],
+      shopping: [],
+      opposites: [],
+      cooking: [],
+      celebration: []
     },
     sessionCompletions: {}
   };
@@ -672,7 +1078,9 @@
 
   const programOrder = [
     "greeting", "colors", "toys", "animals", "clothes", "park", "family",
-    "cleanup", "shapes", "actions", "feelings", "weather", "manners", "room"
+    "cleanup", "shapes", "actions", "feelings", "weather", "manners", "room",
+    "body", "food", "numbers", "music", "bath", "bedtime", "games",
+    "farm", "transport", "beach", "shopping", "opposites", "cooking", "celebration"
   ];
 
   function elapsedProgramDays(dateString) {
@@ -690,7 +1098,7 @@
   }
 
   function previousLesson(lesson) {
-    if (lesson.order <= 1) return elapsedProgramDays(dateKey()) > 0 ? lessons.family : null;
+    if (lesson.order <= 1) return elapsedProgramDays(dateKey()) > 0 ? lessons[programOrder[programOrder.length - 1]] : null;
     return lessons[programOrder[lesson.order - 2]];
   }
 
@@ -976,6 +1384,51 @@
     document.getElementById("rewardCollectionDetail").hidden = false;
   }
 
+  const WEEK_SIZE = 7;
+
+  const weekNumberNames = ["第一周", "第二周", "第三周", "第四周", "第五周", "第六周", "第七周", "第八周"];
+
+  function weekOf(lesson) {
+    return Math.ceil(lesson.order / WEEK_SIZE);
+  }
+
+  function weekUnlocked(weekNumber) {
+    return elapsedProgramDays(dateKey()) >= (weekNumber - 1) * WEEK_SIZE;
+  }
+
+  function renderWeekSections() {
+    const container = document.getElementById("weekSections");
+    if (!container) return;
+    const totalWeeks = Math.ceil(programOrder.length / WEEK_SIZE);
+    const totalComplete = programOrder.filter(lessonId => state.completions[lessonId].length > 0).length;
+    container.innerHTML = Array.from({ length: totalWeeks }, (_, index) => {
+      const weekNumber = index + 1;
+      const weekLessons = programOrder.slice(index * WEEK_SIZE, (index + 1) * WEEK_SIZE);
+      const unlocked = weekUnlocked(weekNumber);
+      const weekComplete = weekLessons.filter(lessonId => state.completions[lessonId].length > 0).length;
+      const statusText = unlocked
+        ? (weekNumber === 1 ? `已完成 ${totalComplete} / ${programOrder.length} 个` : `已完成 ${weekComplete} 个`)
+        : `第 ${index * WEEK_SIZE + 1} 天自动开启`;
+      const nodes = weekLessons.map(lessonId => {
+        const lesson = lessons[lessonId];
+        return `
+        <li class="story-node" data-lesson-node="${lesson.id}">
+          <button class="story-node-button" type="button" data-lesson-select="${lesson.id}" aria-label="选择${lesson.nodeTitle}课程">
+            <span class="node-icon">${lesson.order}</span><strong>${lesson.nodeTitle}</strong><small>${lesson.nodeSubtitle}</small>
+          </button>
+        </li>`;
+      }).join("");
+      return `
+      <section class="week-section${weekNumber > 1 ? " week-preview" : ""}${unlocked ? " unlocked" : ""}" aria-labelledby="weekTitle${weekNumber}">
+        <div class="section-heading">
+          <h2 id="weekTitle${weekNumber}">${weekNumberNames[weekNumber - 1] || `第${weekNumber}周`}</h2>
+          <span>${statusText}</span>
+        </div>
+        <ol class="story-path seven-days">${nodes}</ol>
+      </section>`;
+    }).join("");
+  }
+
   function updateHome() {
     const lesson = selectedLesson();
     const today = new Intl.DateTimeFormat("zh-CN", { month: "long", day: "numeric", weekday: "long" }).format(new Date());
@@ -991,27 +1444,22 @@
     const picture = document.getElementById("lessonPicture");
     picture.className = `lesson-picture ${lesson.pictureClass}`;
 
-    const weekTwoUnlocked = elapsedProgramDays(dateKey()) >= 7;
-    document.getElementById("weekTwoSection").classList.toggle("unlocked", weekTwoUnlocked);
-    document.getElementById("weekTwoStatus").textContent = weekTwoUnlocked ? "已经开启" : "第 8 天自动开启";
+    renderWeekSections();
 
-    let completeCount = 0;
     document.querySelectorAll("[data-lesson-node]").forEach(node => {
       const nodeLesson = lessons[node.dataset.lessonNode];
       const completed = state.completions[nodeLesson.id].length > 0;
-      if (completed) completeCount += 1;
       node.classList.toggle("current", nodeLesson.id === state.selectedLessonId);
       node.classList.toggle("completed", completed);
       const icon = node.querySelector(".node-icon");
       const subtitle = node.querySelector("small");
       const button = node.querySelector("button");
-      const locked = nodeLesson.order > 7 && !weekTwoUnlocked;
+      const locked = !weekUnlocked(weekOf(nodeLesson));
       icon.textContent = completed ? "✓" : String(nodeLesson.order);
       subtitle.textContent = completed ? "已完成" : nodeLesson.nodeSubtitle;
       button.disabled = locked;
       button.setAttribute("aria-pressed", nodeLesson.id === state.selectedLessonId ? "true" : "false");
     });
-    document.getElementById("familyProgress").textContent = `已完成 ${completeCount} / 14 个`;
 
     const sessionOneDone = isSessionComplete(lesson.id, 1);
     const sessionTwoDone = isSessionComplete(lesson.id, 2);
@@ -1570,8 +2018,9 @@
     }, 240);
   }
 
-  document.querySelectorAll("[data-lesson-select]").forEach(button => {
-    button.addEventListener("click", () => setSelectedLesson(button.dataset.lessonSelect));
+  document.getElementById("weekSections").addEventListener("click", event => {
+    const button = event.target.closest("[data-lesson-select]");
+    if (button && !button.disabled) setSelectedLesson(button.dataset.lessonSelect);
   });
   document.getElementById("startSessionOneButton").addEventListener("click", () => {
     startSession(1, isSessionComplete(state.selectedLessonId, 1));
