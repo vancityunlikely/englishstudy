@@ -2461,7 +2461,7 @@
       <button class="review-audio-button${state.reviewHeard.includes(index) ? " heard" : ""}" type="button" data-review-index="${index}">
         <span aria-hidden="true">${item.emoji}</span>
         <strong>${item.label}</strong>
-        <small>${state.reviewHeard.includes(index) ? "听过了 ✓" : "点一下听"}</small>
+        <small>${state.reviewHeard.includes(index) ? "听过了 ✓" : "马上播放"}</small>
       </button>`).join("");
 
     stageHost.innerHTML = `
@@ -2470,28 +2470,47 @@
         <div class="stage-content">
           <h3>${title}</h3>
           <div class="review-grid">${buttons}</div>
-          <div class="feedback${allHeard ? " success" : ""}" id="reviewFeedback" role="status">${allHeard ? "耳朵已经热起来了！" : "三张卡片都听一遍就可以。"}</div>
+          <div class="feedback${allHeard ? " success" : ""}" id="reviewFeedback" role="status">${allHeard ? "耳朵已经热起来了！" : "三张卡片会自动播放，点卡片可重听。"}</div>
           <div class="stage-actions"><button class="primary-button" type="button" data-action="next"${allHeard ? "" : " disabled"}>复习好了，继续</button></div>
         </div>
       </article>`;
 
     const nextButton = stageHost.querySelector('[data-action="next"]');
+    const markHeard = index => {
+      if (!state.reviewHeard.includes(index)) state.reviewHeard.push(index);
+      const button = stageHost.querySelector(`[data-review-index="${index}"]`);
+      if (button) {
+        button.classList.add("heard");
+        const small = button.querySelector("small");
+        if (small) small.textContent = "听过了 ✓";
+      }
+      if (state.reviewHeard.length >= items.length) {
+        nextButton.disabled = false;
+        const feedback = document.getElementById("reviewFeedback");
+        if (feedback) {
+          feedback.textContent = "耳朵已经热起来了！";
+          feedback.className = "feedback success";
+        }
+      }
+      saveState();
+    };
     stageHost.querySelectorAll("[data-review-index]").forEach(button => {
       button.addEventListener("click", () => {
         const index = Number(button.dataset.reviewIndex);
         speak(items[index].text, items[index].rate);
-        if (!state.reviewHeard.includes(index)) state.reviewHeard.push(index);
-        button.classList.add("heard");
-        button.querySelector("small").textContent = "听过了 ✓";
-        if (state.reviewHeard.length >= items.length) {
-          nextButton.disabled = false;
-          document.getElementById("reviewFeedback").textContent = "耳朵已经热起来了！";
-          document.getElementById("reviewFeedback").className = "feedback success";
-        }
-        saveState();
+        markHeard(index);
       });
     });
     nextButton.addEventListener("click", nextStage);
+    const stageIndexAtRender = state.stageIndex;
+    items.forEach((item, index) => {
+      window.setTimeout(() => {
+        if (screens.lesson.classList.contains("active") && state.stageIndex === stageIndexAtRender) {
+          speak(item.text, item.rate);
+          markHeard(index);
+        }
+      }, 350 + index * 1600);
+    });
   }
 
   function renderChoice(stage) {
@@ -2509,29 +2528,28 @@
           <button class="sound-button" type="button" data-action="play-word" aria-label="播放单词 ${stage.word}">🔊</button>
           <div class="choice-grid" role="group" aria-label="选择正确答案">${options}</div>
           <div class="feedback${state.stageSolved ? " success" : ""}" id="choiceFeedback" role="status">${state.stageSolved ? `找到了！${stage.word} 就是${stage.chinese}。` : "先听一听，再点一张图片"}</div>
-          <div class="stage-actions">
-            <button class="primary-button" type="button" data-action="next"${state.stageSolved ? "" : " disabled"}>继续</button>
-          </div>
         </div>
       </article>`;
 
     stageHost.querySelector('[data-action="play-word"]').addEventListener("click", () => speak(stage.word, 0.74));
-    const nextButton = stageHost.querySelector('[data-action="next"]');
     const feedback = document.getElementById("choiceFeedback");
     stageHost.querySelectorAll("[data-choice]").forEach(button => {
       button.addEventListener("click", () => {
-        stageHost.querySelectorAll("[data-choice]").forEach(item => item.classList.remove("selected", "wrong"));
+        if (state.stageSolved) return;
         if (button.dataset.choice === stage.word) {
+          stageHost.querySelectorAll("[data-choice]").forEach(item => { item.disabled = true; });
           button.classList.add("selected");
           feedback.textContent = `找到了！${stage.word} 就是${stage.chinese}。`;
           feedback.className = "feedback success";
-          nextButton.disabled = false;
           state.stageSolved = true;
           saveState();
           speak(stage.word, 0.76);
           playTone("correct");
           celebrate();
           reactMascot("happy");
+          window.setTimeout(() => {
+            if (screens.lesson.classList.contains("active") && state.stageSolved) nextStage();
+          }, 800);
         } else {
           button.classList.add("wrong");
           feedback.textContent = "还不是这个，再听一次就知道啦。";
@@ -2539,10 +2557,10 @@
           speak(stage.word, 0.74);
           playTone("wrong");
           reactMascot("think");
+          window.setTimeout(() => button.classList.remove("wrong"), 500);
         }
       });
     });
-    nextButton.addEventListener("click", nextStage);
     if (!state.stageSolved) {
       window.setTimeout(() => {
         if (screens.lesson.classList.contains("active") && !state.stageSolved) speak(stage.word, 0.74);
@@ -2553,7 +2571,7 @@
   function renderWordPractice(stage) {
     const source = stage.sourceLesson;
     const wordStages = source.stages.slice(0, 2);
-    const rounds = [wordStages[0], wordStages[1], wordStages[0], wordStages[1]];
+    const rounds = [wordStages[0], wordStages[1], wordStages[0]];
     const finished = state.practiceRound >= rounds.length;
     const dots = rounds.map((_, index) => `<span class="${index < state.practiceRound ? "done" : index === state.practiceRound ? "current" : ""}"></span>`).join("");
 
@@ -2730,7 +2748,7 @@
   function renderWordTap(stage) {
     const source = stage.sourceLesson;
     const wordStages = source.stages.slice(0, 2);
-    const rounds = [wordStages[0], wordStages[1], wordStages[0], wordStages[1]];
+    const rounds = [wordStages[0], wordStages[1], wordStages[0]];
     const finished = state.practiceRound >= rounds.length;
     const dots = rounds.map((_, index) => `<span class="${index < state.practiceRound ? "done" : index === state.practiceRound ? "current" : ""}"></span>`).join("");
 
@@ -2819,23 +2837,17 @@
   function renderPhrasePractice(stage) {
     const phrases = stage.sourceLesson.stages.slice(2, 4);
     const cards = phrases.map((phrase, index) => {
-      const normalKey = `${index}-normal`;
-      const slowKey = `${index}-slow`;
       const saidKey = `${index}-said`;
-      const heardNormal = state.practiceHeard.includes(normalKey);
-      const heardSlow = state.practiceHeard.includes(slowKey);
       const said = state.practiceHeard.includes(saidKey);
-      const readyToSay = heardNormal && heardSlow;
       return `
         <section class="phrase-practice-card${said ? " completed" : ""}">
           <span class="phrase-practice-number">${index + 1}</span>
           <p class="phrase-english">${phrase.phrase}</p>
           <p class="phrase-chinese">${phrase.chinese}</p>
           <div class="practice-listen-row">
-            <button class="secondary-button${heardSlow ? " heard" : ""}" type="button" data-practice-audio="${index}" data-speed="slow">🐢 慢速${heardSlow ? " ✓" : ""}</button>
-            <button class="secondary-button${heardNormal ? " heard" : ""}" type="button" data-practice-audio="${index}" data-speed="normal">▶️ 正常${heardNormal ? " ✓" : ""}</button>
+            <button class="secondary-button" type="button" data-practice-replay="${index}">🔊 再听一遍</button>
+            <button class="dialogue-button" type="button" data-practice-said="${index}"${said ? " disabled" : ""}>${said ? "说过了 ✓" : "我们也说一遍"}</button>
           </div>
-          <button class="dialogue-button" type="button" data-practice-said="${index}"${readyToSay && !said ? "" : " disabled"}>${said ? "我们说过了 ✓" : readyToSay ? "我们也说一遍" : "先听两种速度"}</button>
         </section>`;
     }).join("");
     const allFinished = phrases.every((_, index) => state.practiceHeard.includes(`${index}-said`));
@@ -2847,20 +2859,15 @@
           <p class="stage-kicker">再练一轮，不急着往后赶</p>
           <h3>两句话都听清楚、说一遍</h3>
           <div class="phrase-practice-grid">${cards}</div>
-          <div class="feedback${allFinished ? " success" : ""}" role="status">${allFinished ? "两句话都练熟一点了！" : "每句话先听正常和慢速，再一起开口。"}</div>
+          <div class="feedback${allFinished ? " success" : ""}" role="status">${allFinished ? "两句话都练熟一点了！" : "每句话会自动播放，点“我们也说一遍”就好。"}</div>
           <div class="stage-actions"><button class="primary-button" type="button" data-action="next"${allFinished ? "" : " disabled"}>两句都练好了</button></div>
         </div>
       </article>`;
 
-    stageHost.querySelectorAll("[data-practice-audio]").forEach(button => {
+    stageHost.querySelectorAll("[data-practice-replay]").forEach(button => {
       button.addEventListener("click", () => {
-        const index = Number(button.dataset.practiceAudio);
-        const speed = button.dataset.speed;
-        const key = `${index}-${speed}`;
-        if (!state.practiceHeard.includes(key)) state.practiceHeard.push(key);
-        saveState();
-        speak(phrases[index].phrase, speed === "slow" ? 0.36 : 1);
-        renderStage();
+        const index = Number(button.dataset.practiceReplay);
+        speak(phrases[index].phrase, 0.9);
       });
     });
     stageHost.querySelectorAll("[data-practice-said]").forEach(button => {
@@ -2868,10 +2875,17 @@
         const key = `${button.dataset.practiceSaid}-said`;
         if (!state.practiceHeard.includes(key)) state.practiceHeard.push(key);
         saveState();
+        playTone("correct");
         renderStage();
       });
     });
     stageHost.querySelector('[data-action="next"]').addEventListener("click", nextStage);
+    const firstUnsaid = phrases.findIndex((_, index) => !state.practiceHeard.includes(`${index}-said`));
+    if (firstUnsaid >= 0) {
+      window.setTimeout(() => {
+        if (screens.lesson.classList.contains("active")) speak(phrases[firstUnsaid].phrase, 0.9);
+      }, 320);
+    }
   }
 
   function renderPhraseSong(stage) {
@@ -2926,7 +2940,6 @@
   function renderSpeak(stage) {
     const heardSlow = state.listenModes.includes("slow");
     const heardNormal = state.listenModes.includes("normal");
-    const readyToSay = heardSlow && heardNormal;
     stageHost.innerHTML = `
       <article class="stage-card">
         ${roleBanner(stage.role)}
@@ -2938,12 +2951,12 @@
           </div>
           <div class="listen-row">
             <button class="secondary-button${heardSlow ? " heard" : ""}" type="button" data-action="slow">🐢 慢速听${heardSlow ? " ✓" : ""}</button>
-            <button class="secondary-button${heardNormal ? " heard" : ""}" type="button" data-action="normal">▶️ 正常听${heardNormal ? " ✓" : ""}</button>
+            <button class="secondary-button${heardNormal ? " heard" : ""}" type="button" data-action="normal">▶️ 再听一遍${heardNormal ? " ✓" : ""}</button>
           </div>
           <div class="stage-actions">
-            <button class="primary-button" type="button" data-action="said"${readyToSay || state.stageSolved ? "" : " disabled"}>${state.stageSolved ? "说得很好，继续" : readyToSay ? "我说好了" : "先听两种速度"}</button>
+            <button class="primary-button" type="button" data-action="said">说好了，继续</button>
           </div>
-          <div class="feedback${state.stageSolved ? " success" : ""}" id="speakFeedback" role="status">${state.stageSolved ? "太好了！接下来再换一个小情景。" : readyToSay ? "现在一起开口说一遍。" : "先听正常和慢速，不用追求标准。"}</div>
+          <div class="feedback" id="speakFeedback" role="status">先听一听，再跟着说一遍。</div>
         </div>
       </article>`;
 
@@ -2951,21 +2964,21 @@
       if (!state.listenModes.includes(mode)) state.listenModes.push(mode);
       saveState();
       speak(stage.phrase, rate);
-      renderStage();
+      const button = stageHost.querySelector(`[data-action="${mode}"]`);
+      if (button) {
+        button.classList.add("heard");
+        button.textContent = mode === "slow" ? "🐢 慢速听 ✓" : "▶️ 再听一遍 ✓";
+      }
     };
     stageHost.querySelector('[data-action="slow"]').addEventListener("click", () => hearPhrase("slow", 0.36));
     stageHost.querySelector('[data-action="normal"]').addEventListener("click", () => hearPhrase("normal", 1));
-    stageHost.querySelector('[data-action="said"]').addEventListener("click", event => {
-      if (!state.stageSolved) {
-        state.stageSolved = true;
-        event.currentTarget.textContent = "说得很好，继续";
-        document.getElementById("speakFeedback").textContent = "太好了！接下来再换一个小情景。";
-        document.getElementById("speakFeedback").className = "feedback success";
-        saveState();
-        return;
-      }
+    stageHost.querySelector('[data-action="said"]').addEventListener("click", () => {
+      playTone("correct");
       nextStage();
     });
+    window.setTimeout(() => {
+      if (screens.lesson.classList.contains("active")) speak(stage.phrase, 1);
+    }, 320);
   }
 
   function renderDialogue(stage) {
@@ -2975,7 +2988,6 @@
       return `<div class="dialogue-row ${rowClass}" data-dialogue-index="${index}"><span class="dialogue-role" aria-hidden="true">${line.emoji}</span><div class="dialogue-copy"><strong>${line.role}：${line.english}</strong><small>${line.chinese}</small></div><span class="dialogue-state">${status}</span></div>`;
     }).join("");
     const finished = state.dialogueTurn >= stage.lines.length;
-    const currentHeard = state.dialogueHeard.includes(state.dialogueTurn);
 
     stageHost.innerHTML = `
       <article class="stage-card">
@@ -2986,9 +2998,9 @@
           <div class="stage-actions">
             ${finished
               ? '<button class="primary-button" type="button" data-action="next">对话完成，继续</button>'
-              : `<button class="secondary-button${currentHeard ? " heard" : ""}" type="button" data-action="hear-line">🔊 听这一句${currentHeard ? " ✓" : ""}</button><button class="dialogue-button" type="button" data-action="said-line"${currentHeard ? "" : " disabled"}>${currentHeard ? "这一句说好了" : "先听这一句"}</button>`}
+              : '<button class="secondary-button" type="button" data-action="hear-line">🔊 再听一遍</button><button class="dialogue-button" type="button" data-action="said-line">这一句说好了</button>'}
           </div>
-          <div class="feedback${finished ? " success" : ""}" id="dialogueFeedback" role="status">${finished ? "你们已经完成了一段真实对话！" : currentHeard ? `听过了，轮到${stage.lines[state.dialogueTurn].role}跟着说。` : `先听一遍，再轮到${stage.lines[state.dialogueTurn].role}开口。`}</div>
+          <div class="feedback${finished ? " success" : ""}" id="dialogueFeedback" role="status">${finished ? "你们已经完成了一段真实对话！" : `轮到${stage.lines[state.dialogueTurn].role}：会自动播放，听完跟着说一句。`}</div>
         </div>
       </article>`;
 
@@ -2997,22 +3009,21 @@
       return;
     }
     const currentLine = stage.lines[state.dialogueTurn];
-    stageHost.querySelector('[data-action="hear-line"]').addEventListener("click", event => {
-      if (!state.dialogueHeard.includes(state.dialogueTurn)) state.dialogueHeard.push(state.dialogueTurn);
-      saveState();
+    const turnAtRender = state.dialogueTurn;
+    stageHost.querySelector('[data-action="hear-line"]').addEventListener("click", () => {
       speak(currentLine.english, 0.92);
-      event.currentTarget.classList.add("heard");
-      event.currentTarget.textContent = "🔊 听这一句 ✓";
-      const saidButton = stageHost.querySelector('[data-action="said-line"]');
-      saidButton.disabled = false;
-      saidButton.textContent = "这一句说好了";
-      document.getElementById("dialogueFeedback").textContent = `听过了，轮到${currentLine.role}跟着说。`;
     });
     stageHost.querySelector('[data-action="said-line"]').addEventListener("click", () => {
       state.dialogueTurn += 1;
       saveState();
+      playTone("correct");
       renderStage();
     });
+    window.setTimeout(() => {
+      if (screens.lesson.classList.contains("active") && state.dialogueTurn === turnAtRender) {
+        speak(currentLine.english, 0.92);
+      }
+    }, 320);
   }
 
   function renderMission(stage) {
